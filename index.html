@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KR Trades — XAUUSD Copy Trading</title>
-  <meta name="description" content="Copy professional XAUUSD trades. Consistent returns, low drawdown, fully managed. Join free on Telegram." />
+  <meta name="description" content="Copy professional XAUUSD trades. Verified PnL on Myfxbook. Start with $100 on Vantage." />
 
   <!-- Facebook Pixel -->
   <script>
@@ -26,18 +26,15 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:       #080D18;
-      --surface:  #0D1526;
-      --card:     #111C30;
-      --green:    #059669;
-      --green-lt: #10B981;
-      --green-glow: rgba(5,150,105,0.25);
-      --gold:     #D97706;
-      --text:     #F1F5F9;
-      --muted:    #64748B;
-      --sub:      #94A3B8;
-      --border:   rgba(5,150,105,0.18);
-      --r:        14px;
+      --bg:      #080D18;
+      --card:    #111C30;
+      --green:   #059669;
+      --green-lt:#10B981;
+      --glow:    rgba(5,150,105,0.25);
+      --text:    #F1F5F9;
+      --sub:     #94A3B8;
+      --muted:   #64748B;
+      --border:  rgba(5,150,105,0.18);
     }
 
     html { scroll-behavior: smooth; }
@@ -53,17 +50,17 @@
 
     .wrap {
       width: 100%;
-      max-width: 480px;
+      max-width: 460px;
       margin: 0 auto;
       padding: 0 20px;
     }
 
-    /* ── Topbar ── */
+    /* ── Nav ── */
     .nav {
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(8,13,24,0.9);
+      background: rgba(8,13,24,0.92);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid rgba(5,150,105,0.12);
@@ -80,11 +77,7 @@
       color: var(--text);
       text-decoration: none;
     }
-
-    .logo em {
-      font-style: normal;
-      color: var(--green-lt);
-    }
+    .logo em { font-style: normal; color: var(--green-lt); }
 
     .nav-pill {
       font-size: 11px;
@@ -100,7 +93,7 @@
 
     /* ── Hero ── */
     .hero {
-      padding: 60px 0 52px;
+      padding: 60px 0 48px;
       text-align: center;
     }
 
@@ -115,37 +108,33 @@
       border: 1px solid rgba(5,150,105,0.22);
       padding: 5px 14px;
       border-radius: 20px;
-      margin-bottom: 26px;
+      margin-bottom: 24px;
     }
 
     .live-dot {
-      width: 7px;
-      height: 7px;
+      width: 7px; height: 7px;
       border-radius: 50%;
       background: var(--green-lt);
       animation: blink 1.8s infinite;
     }
 
     @keyframes blink {
-      0%,100% { opacity:1; }
-      50%      { opacity:0.2; }
+      0%,100% { opacity:1; } 50% { opacity:0.2; }
     }
 
     .hero h1 {
-      font-size: clamp(34px, 9vw, 52px);
+      font-size: clamp(34px, 9vw, 50px);
       font-weight: 900;
       letter-spacing: -0.04em;
       line-height: 1.08;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
-
-    .hero h1 .accent { color: var(--green-lt); }
+    .hero h1 .g { color: var(--green-lt); }
 
     .hero-sub {
       font-size: 16px;
       color: var(--sub);
-      margin-bottom: 30px;
-      font-weight: 400;
+      margin-bottom: 28px;
     }
 
     .bullets {
@@ -153,7 +142,7 @@
       display: flex;
       flex-direction: column;
       gap: 11px;
-      margin-bottom: 36px;
+      margin-bottom: 32px;
       text-align: left;
     }
 
@@ -166,19 +155,15 @@
       color: #CBD5E1;
     }
 
-    .check {
+    .chk {
       flex-shrink: 0;
-      width: 20px;
-      height: 20px;
+      width: 20px; height: 20px;
       border-radius: 50%;
       background: rgba(5,150,105,0.15);
       border: 1.5px solid rgba(5,150,105,0.4);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
     }
-
-    .check svg { width: 10px; height: 10px; color: var(--green-lt); }
+    .chk svg { width: 10px; height: 10px; color: var(--green-lt); }
 
     /* ── Buttons ── */
     .btn {
@@ -193,46 +178,64 @@
       border-radius: 12px;
       cursor: pointer;
       text-decoration: none;
-      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
       -webkit-tap-highlight-color: transparent;
       width: 100%;
-      padding: 17px 28px;
+      padding: 17px 24px;
     }
 
     .btn-green {
       background: linear-gradient(135deg, #059669, #10B981);
       color: #fff;
-      box-shadow: 0 4px 24px var(--green-glow);
+      box-shadow: 0 4px 24px var(--glow);
     }
-
     .btn-green:hover, .btn-green:focus-visible {
       transform: translateY(-2px);
       box-shadow: 0 10px 36px rgba(5,150,105,0.4);
     }
+    .btn-green:active { transform: none; }
 
-    .btn-green:active { transform: translateY(0); }
-
-    .btn-ghost {
+    .btn-outline {
       background: transparent;
       color: var(--green-lt);
       border: 1.5px solid rgba(5,150,105,0.35);
     }
-
-    .btn-ghost:hover, .btn-ghost:focus-visible {
+    .btn-outline:hover, .btn-outline:focus-visible {
       background: rgba(5,150,105,0.07);
       border-color: var(--green-lt);
     }
 
     .btn svg { width: 20px; height: 20px; }
-
     .btn:focus-visible { outline: 2px solid var(--green-lt); outline-offset: 3px; }
 
-    /* ── Stats ── */
+    /* ── Divider ── */
+    hr.div { border: none; border-top: 1px solid rgba(255,255,255,0.05); }
+    section { padding: 52px 0; }
+
+    /* ── Section labels ── */
+    .sec-tag {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--green-lt);
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .sec-title {
+      font-size: clamp(22px, 5vw, 28px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    /* ── Proof / Stats ── */
     .stats {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
-      margin: 0 0 10px;
+      margin-bottom: 16px;
     }
 
     .stat {
@@ -261,69 +264,62 @@
       letter-spacing: 0.06em;
     }
 
-    /* Equity placeholder */
-    .equity {
+    /* Myfxbook verified card */
+    .myfx-card {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: var(--r);
-      height: 160px;
+      border-radius: 14px;
+      padding: 18px 20px;
       display: flex;
-      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      gap: 10px;
-      overflow: hidden;
-      position: relative;
+      justify-content: space-between;
+      gap: 12px;
+      text-decoration: none;
+      transition: border-color 0.18s, background 0.18s;
+    }
+    .myfx-card:hover, .myfx-card:focus-visible {
+      border-color: var(--green-lt);
+      background: rgba(16,185,129,0.05);
     }
 
-    .equity::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(5,150,105,0.05), transparent 60%);
+    .myfx-left { display: flex; align-items: center; gap: 12px; }
+
+    .myfx-icon {
+      width: 38px; height: 38px;
+      border-radius: 9px;
+      background: rgba(5,150,105,0.12);
+      border: 1px solid rgba(5,150,105,0.25);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
     }
+    .myfx-icon svg { width: 18px; height: 18px; color: var(--green-lt); }
 
-    .bars {
-      display: flex;
-      align-items: flex-end;
-      gap: 5px;
-      height: 56px;
+    .myfx-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
     }
-
-    .bars span {
-      display: block;
-      width: 13px;
-      border-radius: 3px 3px 0 0;
-      background: linear-gradient(180deg, var(--green-lt), rgba(5,150,105,0.25));
-    }
-
-    .equity-label { font-size: 12px; color: var(--muted); }
-
-    /* ── Section head ── */
-    .sec-tag {
+    .myfx-sub {
       font-size: 11px;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+
+    .myfx-badge {
+      font-size: 10px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.06em;
       color: var(--green-lt);
-      text-align: center;
-      margin-bottom: 8px;
+      background: rgba(5,150,105,0.1);
+      border: 1px solid rgba(5,150,105,0.25);
+      padding: 3px 10px;
+      border-radius: 20px;
+      white-space: nowrap;
     }
-
-    .sec-title {
-      font-size: clamp(22px, 5vw, 28px);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      text-align: center;
-      margin-bottom: 32px;
-    }
-
-    section { padding: 56px 0; }
-
-    hr.div { border: none; border-top: 1px solid rgba(255,255,255,0.05); }
 
     /* ── Steps ── */
-    .steps { display: flex; flex-direction: column; gap: 0; }
+    .steps { display: flex; flex-direction: column; }
 
     .step {
       display: flex;
@@ -337,65 +333,54 @@
       position: absolute;
       left: 19px;
       top: 44px;
-      height: calc(100% - 4px);
+      height: calc(100% + 4px);
       width: 2px;
-      background: linear-gradient(180deg, rgba(5,150,105,0.35), transparent);
+      background: linear-gradient(180deg, rgba(5,150,105,0.3), transparent);
     }
 
     .step + .step { margin-top: 28px; }
 
     .step-n {
       flex-shrink: 0;
-      width: 40px;
-      height: 40px;
+      width: 40px; height: 40px;
       border-radius: 50%;
       background: rgba(5,150,105,0.1);
       border: 2px solid rgba(5,150,105,0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       font-size: 15px;
       font-weight: 800;
       color: var(--green-lt);
     }
 
     .step-body { padding-top: 8px; }
-
     .step-title { font-size: 16px; font-weight: 700; margin-bottom: 3px; }
-
     .step-desc { font-size: 14px; color: var(--sub); }
 
-    /* ── Grid highlights ── */
-    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-    .hl {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 16px 14px;
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-    }
-
-    .hl-ico {
-      flex-shrink: 0;
-      width: 34px;
-      height: 34px;
-      border-radius: 8px;
-      background: rgba(5,150,105,0.1);
-      display: flex;
+    .step-link {
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
+      gap: 5px;
+      margin-top: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--green-lt);
+      background: rgba(5,150,105,0.08);
+      border: 1px solid rgba(5,150,105,0.2);
+      padding: 7px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.15s, border-color 0.15s;
+      cursor: pointer;
     }
+    .step-link:hover, .step-link:focus-visible {
+      background: rgba(5,150,105,0.15);
+      border-color: var(--green-lt);
+    }
+    .step-link svg { width: 13px; height: 13px; }
 
-    .hl-ico svg { width: 16px; height: 16px; color: var(--green-lt); }
-
-    .hl-txt { font-size: 13px; font-weight: 600; color: #CBD5E1; line-height: 1.4; }
-
-    /* ── Final CTA box ── */
+    /* ── Final CTA ── */
     .cta-box {
-      background: linear-gradient(135deg, rgba(5,150,105,0.07), rgba(16,185,129,0.03));
+      background: linear-gradient(135deg, rgba(5,150,105,0.07), rgba(16,185,129,0.02));
       border: 1px solid rgba(5,150,105,0.2);
       border-radius: 20px;
       padding: 40px 20px;
@@ -414,11 +399,7 @@
     .btn-stack { display: flex; flex-direction: column; gap: 12px; }
 
     /* ── Disclaimer ── */
-    .disc {
-      padding: 24px 0 44px;
-      text-align: center;
-    }
-
+    .disc { padding: 24px 0 44px; text-align: center; }
     .disc p {
       font-size: 11px;
       color: #374151;
@@ -426,6 +407,9 @@
       max-width: 420px;
       margin: 0 auto;
     }
+
+    /* Telegram icon shorthand */
+    .tg-icon { fill: currentColor; }
 
     @media (prefers-reduced-motion: reduce) {
       .live-dot { animation: none; opacity: 1; }
@@ -449,53 +433,43 @@
         Live signals active
       </div>
 
-      <h1>
-        Copy Gold<br />
-        <span class="accent">Trades. Free.</span>
-      </h1>
+      <h1>Copy Gold Trades<br /><span class="g">That Actually Win</span></h1>
 
-      <p class="hero-sub">Professional XAUUSD signals with consistent returns and controlled risk.</p>
+      <p class="hero-sub">Verified XAUUSD performance. Start copying in minutes.</p>
 
       <ul class="bullets" aria-label="Key benefits">
         <li>
-          <span class="check" aria-hidden="true">
-            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="2 6 5 9 10 3"/>
-            </svg>
+          <span class="chk" aria-hidden="true">
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 6 5 9 10 3"/></svg>
           </span>
-          Low drawdown strategy
+          Verified PnL — not fake screenshots
         </li>
         <li>
-          <span class="check" aria-hidden="true">
-            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="2 6 5 9 10 3"/>
-            </svg>
+          <span class="chk" aria-hidden="true">
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 6 5 9 10 3"/></svg>
           </span>
-          15–30% monthly target
+          Start with just $100
         </li>
         <li>
-          <span class="check" aria-hidden="true">
-            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="2 6 5 9 10 3"/>
-            </svg>
+          <span class="chk" aria-hidden="true">
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 6 5 9 10 3"/></svg>
           </span>
-          Fully managed execution
+          One-time setup — fully automatic after that
         </li>
       </ul>
 
       <a
-        href="https://t.me/YOUR_TELEGRAM"
+        href="https://t.me/HySGNbJa3r"
         class="btn btn-green"
-        id="cta-hero"
         target="_blank"
         rel="noopener"
         aria-label="Join KR Trades on Telegram"
         onclick="track('telegram_hero')"
       >
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <svg viewBox="0 0 24 24" class="tg-icon" aria-hidden="true">
           <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
         </svg>
-        Join Telegram — It's Free
+        Join Telegram — Free
       </a>
     </div>
   </section>
@@ -505,8 +479,8 @@
   <!-- ── PROOF ── -->
   <section>
     <div class="wrap">
-      <p class="sec-tag">Track record</p>
-      <h2 class="sec-title">Real Numbers</h2>
+      <p class="sec-tag">Verified Performance</p>
+      <h2 class="sec-title">Real PnL. Public Record.</h2>
 
       <div class="stats" role="list" aria-label="Performance stats">
         <div class="stat" role="listitem">
@@ -522,26 +496,34 @@
           <span class="stat-lbl">Win Rate</span>
         </div>
         <div class="stat" role="listitem">
-          <span class="stat-val">18mo</span>
-          <span class="stat-lbl">Track Record</span>
+          <span class="stat-val">XAUUSD</span>
+          <span class="stat-lbl">Focus Pair</span>
         </div>
       </div>
 
-      <div class="equity" aria-label="Equity growth chart placeholder">
-        <div class="bars" aria-hidden="true">
-          <span style="height:28%"></span>
-          <span style="height:38%"></span>
-          <span style="height:32%"></span>
-          <span style="height:52%"></span>
-          <span style="height:46%"></span>
-          <span style="height:65%"></span>
-          <span style="height:58%"></span>
-          <span style="height:76%"></span>
-          <span style="height:70%"></span>
-          <span style="height:100%"></span>
+      <!-- Myfxbook verified link -->
+      <a
+        href="https://www.myfxbook.com/portfolio/koushik-ranjit/12009479"
+        class="myfx-card"
+        target="_blank"
+        rel="noopener"
+        aria-label="View verified trading record on Myfxbook"
+        onclick="track('myfxbook_click')"
+      >
+        <div class="myfx-left">
+          <div class="myfx-icon" aria-hidden="true">
+            <!-- Chart line icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+          </div>
+          <div>
+            <p class="myfx-label">View on Myfxbook</p>
+            <p class="myfx-sub">koushik-ranjit / #12009479</p>
+          </div>
         </div>
-        <span class="equity-label">Equity curve · replace with myfxbook screenshot</span>
-      </div>
+        <span class="myfx-badge">Verified</span>
+      </a>
     </div>
   </section>
 
@@ -550,77 +532,49 @@
   <!-- ── HOW IT WORKS ── -->
   <section>
     <div class="wrap">
-      <p class="sec-tag">Simple process</p>
-      <h2 class="sec-title">How It Works</h2>
+      <p class="sec-tag">Get started</p>
+      <h2 class="sec-title">3 Steps. That's All.</h2>
 
       <ol class="steps" aria-label="Steps to start copy trading">
+
         <li class="step">
           <div class="step-n" aria-hidden="true">1</div>
           <div class="step-body">
-            <p class="step-title">Join Telegram</p>
-            <p class="step-desc">Free access. Get signals and trade updates instantly.</p>
+            <p class="step-title">Create a Vantage Account</p>
+            <p class="step-desc">Free to open. Takes 5 minutes. Use our link to get started.</p>
+            <a
+              href="https://vigco.co/la-com-inv/TpCuu75a"
+              class="step-link"
+              target="_blank"
+              rel="noopener"
+              aria-label="Open Vantage account"
+              onclick="track('vantage_step1')"
+            >
+              Open Vantage Account
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4"/>
+              </svg>
+            </a>
           </div>
         </li>
+
         <li class="step">
           <div class="step-n" aria-hidden="true">2</div>
           <div class="step-body">
-            <p class="step-title">Follow Signals & Results</p>
-            <p class="step-desc">Real entries, exits, and equity updates posted live.</p>
+            <p class="step-title">Deposit Minimum $100</p>
+            <p class="step-desc">Fund your account. $100 minimum to start copying live trades.</p>
           </div>
         </li>
+
         <li class="step">
           <div class="step-n" aria-hidden="true">3</div>
           <div class="step-body">
-            <p class="step-title">Start Copying Trades</p>
-            <p class="step-desc">Mirror trades on your broker. Full setup guide provided.</p>
+            <p class="step-title">Set Up Copy Trading</p>
+            <p class="step-desc">Follow our Telegram guide. One-time setup — runs automatically after that.</p>
           </div>
         </li>
+
       </ol>
-    </div>
-  </section>
-
-  <hr class="div" />
-
-  <!-- ── STRATEGY ── -->
-  <section>
-    <div class="wrap">
-      <p class="sec-tag">Strategy</p>
-      <h2 class="sec-title">Why KR Trades?</h2>
-
-      <div class="grid2" role="list" aria-label="Strategy highlights">
-        <div class="hl" role="listitem">
-          <div class="hl-ico" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
-            </svg>
-          </div>
-          <span class="hl-txt">XAUUSD Specialist</span>
-        </div>
-        <div class="hl" role="listitem">
-          <div class="hl-ico" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-            </svg>
-          </div>
-          <span class="hl-txt">H1 Timeframe Execution</span>
-        </div>
-        <div class="hl" role="listitem">
-          <div class="hl-ico" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            </svg>
-          </div>
-          <span class="hl-txt">Risk-Managed Approach</span>
-        </div>
-        <div class="hl" role="listitem">
-          <div class="hl-ico" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/>
-            </svg>
-          </div>
-          <span class="hl-txt">No Overtrading</span>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -630,33 +584,31 @@
   <section>
     <div class="wrap">
       <div class="cta-box">
-        <h2>Start Now</h2>
-        <p>Join traders already copying XAUUSD signals from KR Trades</p>
+        <h2>Ready to Start?</h2>
+        <p>Join free on Telegram and get the full copy trading setup guide.</p>
         <div class="btn-stack">
           <a
-            href="https://t.me/YOUR_TELEGRAM"
+            href="https://t.me/HySGNbJa3r"
             class="btn btn-green"
-            id="cta-bottom"
             target="_blank"
             rel="noopener"
             aria-label="Join KR Trades Telegram"
             onclick="track('telegram_bottom')"
           >
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+            <svg viewBox="0 0 24 24" class="tg-icon" aria-hidden="true">
+              <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
             </svg>
             Join Telegram — Free
           </a>
           <a
-            href="https://t.me/YOUR_TELEGRAM"
-            class="btn btn-ghost"
-            id="cta-copy"
+            href="https://vigco.co/la-com-inv/TpCuu75a"
+            class="btn btn-outline"
             target="_blank"
             rel="noopener"
-            aria-label="Start copying trades"
-            onclick="track('start_copying')"
+            aria-label="Open Vantage account"
+            onclick="track('vantage_bottom')"
           >
-            Start Copying Trades
+            Open Vantage Account
           </a>
         </div>
       </div>
@@ -670,8 +622,8 @@
       <div class="disc" role="contentinfo">
         <p>
           Trading involves significant risk. Past performance is not indicative of future results.
-          Only trade with capital you can afford to lose. This is not financial advice.
-          KR Trades is an educational signal service.
+          Only invest capital you can afford to lose. This is not financial advice.
+          KR Trades is an educational signal service. Affiliate link used for Vantage.
         </p>
       </div>
     </div>
@@ -680,12 +632,14 @@
   <script>
     function track(evt) {
       if (typeof fbq !== 'undefined') {
-        fbq('trackCustom', evt.startsWith('telegram') ? 'TelegramClick' : 'CopyClick', { source: evt });
+        var evtName = evt.startsWith('telegram') ? 'TelegramClick'
+                    : evt.startsWith('vantage')   ? 'VantageClick'
+                    : 'LinkClick';
+        fbq('trackCustom', evtName, { source: evt });
       }
       if (typeof gtag !== 'undefined') gtag('event', 'cta_click', { button: evt });
     }
 
-    // Scroll depth tracking
     (function () {
       var hit = {};
       window.addEventListener('scroll', function () {
